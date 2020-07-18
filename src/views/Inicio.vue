@@ -11,7 +11,9 @@
         ></b-card-img>
 
         <b-card-title :title="item.name"></b-card-title>
-        
+        <b-card-text>Estatus: {{item.status}} </b-card-text>
+        <b-card-text>Especie: {{item.species}} </b-card-text>
+        <b-card-text>Género: {{item.gender}} </b-card-text>
         <b-card-footer>
           <b-button 
             @click="passChar(item.name)"
@@ -69,10 +71,6 @@ export default {
     ]),
     addComment()
     {
-      console.log('Commentario Agregado!')
-      console.log(`el comentario es de ${this.nombre}`)
-      console.log(`el comentario dice ${this.comentario}`)
-
       let objeto = {
         nombre: this.nombre,
         comentario: this.comentario,
