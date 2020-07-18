@@ -79,7 +79,8 @@ export default {
 
       this.saveComment(objeto);
       
-      
+      //this.$bvModal.hide('modal-comment')
+      this.$router.push({ name: 'Opiniones' })
     }
   },
   beforeMount()
