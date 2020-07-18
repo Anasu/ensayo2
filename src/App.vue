@@ -2,13 +2,16 @@
   <div id="app">
     <nav-bar></nav-bar>
     <router-view/>
+    <foo-ter></foo-ter>
   </div>
 </template>
 
 <script>
 import NavBar from './components/Navbar'
+import FooTer from './components/Footer'
 
 export default {
+  name: 'Rick & Morty',
   data() 
   {
     return {
@@ -17,6 +20,7 @@ export default {
   },
   components: {
     NavBar,
+    FooTer,
   }
 }
 </script>
