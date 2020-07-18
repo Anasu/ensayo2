@@ -31,17 +31,20 @@
         v-model="nombre"
         placeholder="Ingrese su nombre"
         :state="nameState"
-        aria-describedby="input-live-help input-live-feedback"
+        aria-describedby="input-live-feedback"
       ></b-form-input>
       <b-form-input
         v-model="comentario"
         placeholder="Ingrese su comentario"
-        :state="nameState"
-        aria-describedby="input-live-help input-live-feedback"
+        :state="commentState"
+        aria-describedby="input-live-feedback2"
       ></b-form-input>
       <!-- Mensaje de error -->
       <b-form-invalid-feedback id="input-live-feedback">
         Ingrese al menos 3 letras
+      </b-form-invalid-feedback>
+      <b-form-invalid-feedback id="input-live-feedback2">
+        Ingrese al menos 20 letras
       </b-form-invalid-feedback>
       <!-- Botones -->
       <b-button 
@@ -98,8 +101,11 @@ export default {
       // return this.$store.getters.getCharacters
     },
     nameState() {
-        return this.nombre.length > 2 ? true : false
-      }
+      return this.nombre.length > 2 ? true : false
+    },
+    commentState() {
+      return this.comentario.length > 20 ? true : false
+    },
   },
   methods: {
     ...mapActions([
