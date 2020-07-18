@@ -14,7 +14,7 @@
         
         <b-card-footer>
           <b-button 
-            v-b-modal.modal-Comment
+            @click="passChar(item.id)"
             variant="outline-primary"
           >Comentar</b-button>
         </b-card-footer>
@@ -35,7 +35,7 @@
       >Cancelar</b-button>
       <b-button 
         variant="success"
-        @click="addComment"
+        @click="addComment()"
       >Comentar</b-button>
     </b-modal>
   </div>
@@ -50,7 +50,8 @@ export default {
   {
     return {
       nombre: '',
-      comentario: ''
+      comentario: '',
+      selPJ: ''
     }
   },
   computed: {
@@ -74,13 +75,18 @@ export default {
 
       let objeto = {
         nombre: this.nombre,
-        comentario: this.comentario
+        comentario: this.comentario,
+        personaje: this.selPJ,
       }
 
       this.saveComment(objeto);
       
-      //this.$bvModal.hide('modal-comment')
       this.$router.push({ name: 'Opiniones' })
+    },
+    passChar(ID)
+    {
+      this.selPJ = ID;
+      this.$bvModal.show('modal-Comment');
     }
   },
   beforeMount()
