@@ -14,7 +14,7 @@
         
         <b-card-footer>
           <b-button 
-            @click="passChar(item.id)"
+            @click="passChar(item.name)"
             variant="outline-primary"
           >Comentar</b-button>
         </b-card-footer>
