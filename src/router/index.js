@@ -32,7 +32,13 @@ Vue.use(VueRouter)
     path: '/edit',
     name: 'Edit',
     // importacion lazy-load
-    component: () => import(/* webpackChunkName: "edit" */ '../views/Edit.vue')
+    component: () => import(/* webpackChunkName: "edit" */ '../views/Editar.vue')
+  },
+  {
+    path: '/*',
+    name: 'NotFound',
+    // importacion lazy-load
+    component: () => import(/* webpackChunkName: "edit" */ '../views/NotFound.vue')
   },
 ]
 
