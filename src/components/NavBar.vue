@@ -1,13 +1,13 @@
 <template>
   <div>
-    <!-- Navbar con logo e items , Artículos y Admin -->
-    <b-navbar toggleable="lg" type="dark" variant="danger">
+    <!-- Navbar con logo e items Opiniones, Favoritos y Admin -->
+    <b-navbar toggleable="lg" type="dark" variant="info">
       <!-- Logo -->
       <b-navbar-brand href="#">
         <router-link 
-          :to="{name: 'Artistas'}" 
+          :to="{name: 'Inicio'}" 
           class="navbar_title"
-        >Actual Music</router-link>
+        >Rick & Morty</router-link>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -17,15 +17,15 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item right href="#">
             <router-link 
-              :to="{name: 'Artistas'}" 
+              :to="{name: 'Opiniones'}" 
               class="navbar_item-blanco"
-            >Artistas</router-link>
+            >Opiniones</router-link>
           </b-nav-item>
           <b-nav-item right href="#">
             <router-link 
-              :to="{name: 'Articulos'}"
+              :to="{name: 'Favoritos'}"
               class="navbar_item-blanco"
-            >Artículos</router-link>
+            >Favoritos</router-link>
           </b-nav-item>
           <b-nav-item right href="#">
             <router-link 
