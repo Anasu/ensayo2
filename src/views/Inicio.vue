@@ -11,10 +11,11 @@
         ></b-card-img>
 
         <b-card-title :title="item.name"></b-card-title>
-        <b-card-text>Estatus: {{item.status}} </b-card-text>
-        <b-card-text>Especie: {{item.species}} </b-card-text>
-        <b-card-text>Género: {{item.gender}} </b-card-text>
         <b-card-footer>
+          <b-button
+            variant="info"
+            @click="createModal(item.status, item.species, item.gender, item.image, item.name)"
+          >Ver más</b-button>
           <b-button 
             @click="passChar(item.name)"
             variant="outline-primary"
@@ -40,6 +41,23 @@
         @click="addComment()"
       >Comentar</b-button>
     </b-modal>
+
+    <b-modal id="modal-item" title="Personaje">
+      <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+        <b-row no-gutters>
+          <b-col md="6">
+            <b-card-img :src="this.foto" :alt="this.pjName" class="rounded-0"></b-card-img>
+          </b-col>
+          <b-col md="6">
+            <b-card-body :title="this.pjName">
+              <b-card-text>Estado: {{ this.estado}} </b-card-text>
+              <b-card-text>Género: {{ this.genero}} </b-card-text>
+              <b-card-text>Especie: {{this.especie}} </b-card-text>
+            </b-card-body>
+          </b-col>
+        </b-row>
+      </b-card>
+    </b-modal>
   </div>
 </template>
 
@@ -53,7 +71,12 @@ export default {
     return {
       nombre: '',
       comentario: '',
-      selPJ: ''
+      selPJ: '',
+      estado: '',
+      genero: '',
+      especie: '',
+      foto: '',
+      pjName: ''
     }
   },
   computed: {
@@ -85,6 +108,16 @@ export default {
     {
       this.selPJ = ID;
       this.$bvModal.show('modal-Comment');
+    },
+    createModal(status, species, gender, img, pj)
+    {
+      this.estado = status;
+      this.especie = species;
+      this.genero = gender;
+      this.foto = img;
+      this.pjName = pj;
+
+      this.$bvModal.show('modal-item');
     }
   },
   beforeMount()
