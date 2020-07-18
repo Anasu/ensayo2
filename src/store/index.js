@@ -13,6 +13,10 @@ export default new Vuex.Store({
     getCharacters(state)
     {
       return state.characters;
+    },
+    getComments(state)
+    {
+      return state.comentarios
     }
   },
   mutations: {
@@ -44,6 +48,7 @@ export default new Vuex.Store({
     },
     saveComment(context, comentObj)
     {
+      
       context.commit('SAVECOMMENT', comentObj)
     }
   },
