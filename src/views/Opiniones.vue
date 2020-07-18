@@ -7,17 +7,19 @@
       no-body 
       class="mb-1">
       <b-card-header 
-        header-tag="item.nombre" 
         class="p-1" 
         role="tab"
       >
         <b-button 
           block 
-          v-b-toggle.accordion-1 
+          v-b-toggle="'accordion-' + item.id"
           variant="info"
         >Ver Comentario</b-button>
       </b-card-header>
-      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+      <b-collapse 
+        :id="'accordion-' + item.id"
+        accordion="my-accordion" 
+        role="tabpanel">
         <b-card-body>
           <b-card-text>Autor: {{ item.nombre }}</b-card-text>
           <b-card-text>{{ item.comentario }}</b-card-text>
@@ -35,6 +37,9 @@ export default {
     {
       return this.$store.getters.getComments
     }
+  },
+  methods: {
+    
   }
 }
 </script>

@@ -48,7 +48,10 @@ export default new Vuex.Store({
     },
     saveComment(context, comentObj)
     {
-      
+      comentObj = {
+        ...comentObj,
+        id: context.state.comentarios.length
+      }
       context.commit('SAVECOMMENT', comentObj)
     }
   },
