@@ -24,15 +24,26 @@
       </b-card>
     </b-card-group>
 
+    <!-- Modal para enviar comentarios -->
     <b-modal id="modal-Comment" title="Comentar" hide-footer>
+      <!-- Inputs -->
       <b-form-input
         v-model="nombre"
         placeholder="Ingrese su nombre"
+        :state="nameState"
+        aria-describedby="input-live-help input-live-feedback"
       ></b-form-input>
       <b-form-input
         v-model="comentario"
         placeholder="Ingrese su comentario"
+        :state="nameState"
+        aria-describedby="input-live-help input-live-feedback"
       ></b-form-input>
+      <!-- Mensaje de error -->
+      <b-form-invalid-feedback id="input-live-feedback">
+        Ingrese al menos 3 letras
+      </b-form-invalid-feedback>
+      <!-- Botones -->
       <b-button 
         @click="$bvModal.hide('modal-comment')"
       >Cancelar</b-button>
@@ -41,7 +52,7 @@
         @click="addComment()"
       >Comentar</b-button>
     </b-modal>
-
+    <!-- Modal para ver contenido -->
     <b-modal id="modal-item" title="Personaje">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>
@@ -85,7 +96,10 @@ export default {
       let array = this.$store.getters.getCharacters.slice(0,4);
       return array
       // return this.$store.getters.getCharacters
-    }
+    },
+    nameState() {
+        return this.nombre.length > 2 ? true : false
+      }
   },
   methods: {
     ...mapActions([
