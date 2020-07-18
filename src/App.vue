@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav-bar></nav-bar>
-    <router-view/>
+    <router-view class="container"/>
     <foo-ter></foo-ter>
   </div>
 </template>
@@ -11,7 +11,7 @@ import NavBar from './components/Navbar'
 import FooTer from './components/Footer'
 
 export default {
-  name: 'Rick & Morty',
+  name: 'RickAndMorty',
   data() 
   {
     return {
